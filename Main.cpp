@@ -34,25 +34,6 @@ void LoadContent()
     /// Put your asset loading code here.
     /// </summary>
 
-    if (!_texture.loadFromFile("assets/Laser_Cannon.png"))
-        cerr << "Failed to load texture!" << std::endl;
-
-    if (!_font.openFromFile("assets/arial.ttf"))
-        cerr << "Failed to load font!" << std::endl;
-    
-    if (!_soundBuffer.loadFromFile("assets/laser_sound.wav"))
-        cerr << "Failed to load sound!" << std::endl;
-    
-    if (!_music.openFromFile("assets/background_music.ogg"))
-        cerr << "Failed to load music!" << std::endl;
-
-    _sprite.emplace(_texture);
-    _sprite->setPosition(Vector2f(100.f, 100.f));
-
-    _text.emplace(_font);
-    _text->setString("Hello, SFML!");
-    _text->setCharacterSize(24);
-    _text->setFillColor(Color::White);
 
     cout << "Game content loaded!" << std::endl;
 }
@@ -75,10 +56,7 @@ void Draw(RenderWindow& _window)
     _window.clear(Color::Black);
 
     //Draw your game objects here
-    if (_sprite)
-        _window.draw(*_sprite);
-    if (_text)
-        _window.draw(*_text);
+
 
     _window.display();
 
